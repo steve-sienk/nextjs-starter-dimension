@@ -13,7 +13,9 @@ class IndexPage extends React.Component {
             timeout: false,
             articleTimeout: false,
             article: "",
-            loading: "is-loading"
+            loading: "is-loading",
+            videoSrc: "https://www.youtube.com/embed/qE5cLECGcQQ",
+            videoSrc2: "https://www.youtube.com/embed/0GXmqMdY1Ts"
         }
         this.handleOpenArticle = this.handleOpenArticle.bind(this)
         this.handleCloseArticle = this.handleCloseArticle.bind(this)
@@ -34,6 +36,8 @@ class IndexPage extends React.Component {
     handleOpenArticle(article) {
         this.setState({
             isArticleVisible: !this.state.isArticleVisible,
+            videoSrc: "https://www.youtube.com/embed/qE5cLECGcQQ",
+            videoSrc2: "https://www.youtube.com/embed/0GXmqMdY1Ts",
             article
         })
 
@@ -52,7 +56,9 @@ class IndexPage extends React.Component {
 
     handleCloseArticle() {
         this.setState({
-            articleTimeout: !this.state.articleTimeout
+            articleTimeout: !this.state.articleTimeout,
+            videoSrc: '',
+            videoSrc2: ''
         })
 
         setTimeout(() => {
@@ -73,7 +79,7 @@ class IndexPage extends React.Component {
             <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? "is-article-visible" : ""}`}>
                 <div>
                     <Head>
-                        <title>Next.js Starter</title>
+                        <title>Steve Sienkowski</title>
                         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600,600i" rel="stylesheet" />
                     </Head>
 
@@ -84,6 +90,8 @@ class IndexPage extends React.Component {
                         <Main
                             isArticleVisible={this.state.isArticleVisible}
                             timeout={this.state.timeout}
+                            videoSrc={this.state.videoSrc}
+                            videoSrc2={this.state.videoSrc2}
                             articleTimeout={this.state.articleTimeout}
                             article={this.state.article}
                             onCloseArticle={this.handleCloseArticle}

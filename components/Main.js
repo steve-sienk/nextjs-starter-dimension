@@ -13,26 +13,60 @@ class Main extends React.Component {
     return (
       <div id="main" style={this.props.timeout ? {display: 'flex'} : {display: 'none'}}>
 
-        <article id="intro" className={`${this.props.article === 'intro' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
-          <h2 className="major">Intro</h2>
-          <span className="image main"><img src="/static/images/pic01.jpg" alt="" /></span>
-          <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+        <article id="learn" className={`${this.props.article === 'learn' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
+          <h2 className="major">Learn</h2>
+          <span className="image main">Car and Driver Model 3 overview:
+          <iframe id="video" width="560" height="315" src={this.props.videoSrc} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe></span>
+          <span className="image main">Model 3 Quick Tutorial:
+          <iframe id="video" width="560" height="315" src={this.props.videoSrc2} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe></span>
+          <span className="image main">Click the Tesla logo below to learn about the Model 3 from Tesla.<a href="https://www.tesla.com/support/Model-3-videos"><img src="/static/images/tesla-logo.jpg" alt="Tesla" /></a></span>
           {close}
         </article>
 
-        <article id="work" className={`${this.props.article === 'work' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
-          <h2 className="major">Work</h2>
-          <span className="image main"><img src="/static/images/pic02.jpg" alt="" /></span>
-          <p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-          <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
+        <article id="photos" className={`${this.props.article === 'photos' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
+          <h2 className="major">Photos</h2>
+          <span className="image main">
+            <a href="/static/images/outside1.jpg">
+              <img src="/static/images/outside1.jpg" alt="" /></a>
+              Tesla Model 3
+          </span>
+          <span className="image main">
+            <a href="/static/images/inside.jpg">
+              <img src="/static/images/inside.jpg" alt="" /></a>
+              Interior
+          </span>
+          <span className="image main">
+            <a href="/static/images/inside2.jpg">
+              <img src="/static/images/inside2.jpg" alt="" /></a>
+              Interior 2
+          </span>
+          <span className="image main">
+            <a href="/static/images/outside2.jpg">
+              <img src="/static/images/outside2.jpg" alt="" /></a>
+              Front
+          </span>
+          <span className="image main">
+            <a href="/static/images/outside3.jpg">
+              <img src="/static/images/outside3.jpg" alt="" /></a>
+              Rear
+          </span>
+          <span className="image main">
+            <a href="/static/images/side.jpg">
+              <img src="/static/images/side.jpg" alt="" /></a>
+              Side
+          </span>
+          <span className="image main">
+            <a href="/static/images/driver.jpg">
+              <img src="/static/images/driver.jpg" alt="" /></a>
+              Driver Seat
+          </span>
           {close}
         </article>
 
         <article id="about" className={`${this.props.article === 'about' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">About</h2>
-          <span className="image main"><img src="/static/images/pic03.jpg" alt="" /></span>
-          <p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+          <span className="image main"><img src="/static/images/me.jpg" alt="" /></span>
+          <p>Thanks for renting!<br/>-Steve</p>
           {close}
         </article>
 
@@ -56,7 +90,7 @@ class Main extends React.Component {
               <li><input type="reset" value="Reset" /></li>
             </ul>
           </form>
-          <ul className="icons">
+          {/* <ul className="icons">
             <li><a href="#">
               <FontAwesomeIcon icon={faTwitter} />
             </a></li>
@@ -69,7 +103,7 @@ class Main extends React.Component {
             <li><a href="#">
               <FontAwesomeIcon icon={faGithub} />
             </a></li>
-          </ul>
+          </ul> */}
           {close}
         </article>
 
@@ -83,7 +117,9 @@ Main.propTypes = {
   article: PropTypes.string,
   articleTimeout: PropTypes.bool,
   onCloseArticle: PropTypes.func,
-  timeout: PropTypes.bool
+  timeout: PropTypes.bool,
+  videoSrc: PropTypes.string,
+  videoSrc2: PropTypes.string
 }
 
 export default Main

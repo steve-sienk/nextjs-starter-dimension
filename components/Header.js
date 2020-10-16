@@ -1,34 +1,47 @@
 import PropTypes from 'prop-types';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faGem from '@fortawesome/fontawesome-free-regular/faGem'
+import { useUrlSearchParams } from "use-url-search-params";
 
-const Header = (props) => (
+export default function Header(props) {
+    const [params, setParams] = useUrlSearchParams();
+    const name = params.thanks;
+    return (
     <header id="header" style={props.timeout ? {display: 'none'} : {}}>
-        <div className="logo">
-            {/*<span className="icon fa-diamond"></span>*/}
-            <FontAwesomeIcon icon={faGem} transform="grow-18" />
-        </div>
+
         <div className="content">
             <div className="inner">
-                <h1>Dimension</h1>
-                <p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<br />
-                for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>
+            <h1>Tesla Model 3</h1>
+                <p><h3>
+                {name === undefined ? "Thanks for renting!": `Thanks for renting, ${name}!`}
+                </h3>
+                </p>
             </div>
         </div>
         <nav>
             <ul>
-                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('intro')}}>Intro</a></li>
-                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('work')}}>Work</a></li>
-                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('about')}}>About</a></li>
-                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('contact')}}>Contact</a></li>
+                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('learn')}}>Learn</a></li>
             </ul>
         </nav>
+        <nav>
+            <ul>
+                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('photos')}}>Photos</a></li>
+            </ul>
+        </nav>
+        {/* <nav>
+            <ul>
+                <li><a href="https://turo.com/us/en/car-rental/united-states/warren-mi/tesla/model-3/827649">View on Turo</a></li>
+            </ul>
+        </nav> */}
+        <nav><ul><li>
+            <a href="javascript:;" onClick={() => {props.onOpenArticle('about')}}>About</a>
+        </li></ul></nav>
     </header>
-)
+    ); 
+}
 
 Header.propTypes = {
     onOpenArticle: PropTypes.func,
     timeout: PropTypes.bool
 }
 
-export default Header
