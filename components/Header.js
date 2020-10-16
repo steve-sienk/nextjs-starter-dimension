@@ -13,7 +13,7 @@ export default function Header(props) {
             <div className="inner">
             <h1>Tesla Model 3</h1>
                 <p><h3>
-                {name === undefined ? "Thanks for renting!": `Thanks for renting, ${name}!`}
+                {name === undefined ? "Detroit rental": `Thanks for renting, ${name}!`}
                 </h3>
                 </p>
             </div>
@@ -28,11 +28,13 @@ export default function Header(props) {
                 <li><a href="javascript:;" onClick={() => {props.onOpenArticle('photos')}}>Photos</a></li>
             </ul>
         </nav>
-        {/* <nav>
+        { name === undefined ?
+        <nav>
             <ul>
-                <li><a href="https://turo.com/us/en/car-rental/united-states/warren-mi/tesla/model-3/827649">View on Turo</a></li>
+                <li><a href="https://turo.com/us/en/car-rental/united-states/warren-mi/tesla/model-3/827649">Rent on Turo</a></li>
             </ul>
-        </nav> */}
+        </nav>
+        : '' }
         <nav><ul><li>
             <a href="javascript:;" onClick={() => {props.onOpenArticle('about')}}>About</a>
         </li></ul></nav>
