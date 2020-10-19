@@ -28,16 +28,16 @@ export default function Header(props) {
                 <li><a href="javascript:;" onClick={() => {props.onOpenArticle('photos')}}>Photos</a></li>
             </ul>
         </nav>
-        { name === undefined ?
+        <nav><ul><li>
+            <a href="javascript:;" onClick={() => {props.onOpenArticle('about')}}>About</a>
+        </li></ul></nav>
+        { name === undefined &&
         <nav>
             <ul>
                 <li><a href="https://turo.com/us/en/car-rental/united-states/warren-mi/tesla/model-3/827649">Rent on Turo</a></li>
             </ul>
         </nav>
-        : '' }
-        <nav><ul><li>
-            <a href="javascript:;" onClick={() => {props.onOpenArticle('about')}}>About</a>
-        </li></ul></nav>
+        }
     </header>
     ); 
 }
